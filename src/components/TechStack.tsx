@@ -28,7 +28,7 @@ export default function TechStack() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="section-eyebrow">01 — Toolkit</p>
+        <p className="section-eyebrow">Toolkit</p>
         <h2 className="section-title">Tech I build with</h2>
       </motion.div>
       <div className="tile-grid">

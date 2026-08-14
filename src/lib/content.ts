@@ -1,4 +1,4 @@
-export const NAME = "Abdulqoyum";
+export const NAME = " Jamiu Abdulqoyum";
 
 export const ROLE_LINES: string[] = [
   "Full-Stack Developer",
@@ -13,6 +13,11 @@ export interface TechItem {
   name: string;
   group: TechGroup;
 }
+export const ABOUT_TEXT = [
+  "I'm a self-taught full-stack developer working primarily in the MERN stack — MongoDB, Express, React, and Node.js.",
+  "I started from close to zero and built my way up by shipping real projects: a real-time Kanban app, a task manager with auth, and a desktop-OS-themed portfolio, among others.",
+  "I care about clean architecture, interfaces that feel good to use, and writing code I'd be comfortable handing to someone else.",
+];
 
 export const TECH: TechItem[] = [
   { name: "React", group: "frontend" },
@@ -75,7 +80,9 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const CONTACT_EMAIL = "you@example.com";
+export const CONTACT_EMAIL = "abdulqoyumjamiu@gmail.com";
+export const AVATAR_PATH = "/avatar.jpg";
+export const AVATAR_HERO_PATH = "/avatar1.jpg";
 export const GITHUB_URL = "#";
 export const LINKEDIN_URL = "#";
 export const CV_PATH = "https://docs.google.com/document/d/1IUlLCL7o0WxMFDlIakeEcvfeJUrPYAGLCUsI2lpE1xo/view";

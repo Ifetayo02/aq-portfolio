@@ -15,7 +15,7 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="section-eyebrow">03 — Get in touch</p>
+        <p className="section-eyebrow">Get in touch</p>
         <h2 className="section-title">Let&apos;s build something</h2>
         <p className="contact-sub">
           Open to internships, freelance work, and collaborations. Reach out

@@ -58,7 +58,7 @@ export default function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <p className="section-eyebrow">02 — Selected work</p>
+                <p className="section-eyebrow">Selected work</p>
                 <h2 className="section-title">Things I&apos;ve built</h2>
             </motion.div>
             <div className="project-grid">
