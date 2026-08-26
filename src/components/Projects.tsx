@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import GithubIcon from "@/components/icons/GithubIcon";
 import { PROJECTS, Project } from "@/lib/content";
 
-function ProjectCard({ project, i }: { project: Project; i: number }) {
+export function ProjectCard({ project, i }: { project: Project; i: number }) {
     return (
         <motion.div
             className="project-card"
@@ -75,6 +75,10 @@ export default function Projects() {
                     <ProjectCard project={p} i={i} key={p.name} />
                 ))}
             </div>
+            <a href="/projects" className="all-projects-link">
+                <span>VIEW ALL PROJECTS</span>
+                <ArrowDownRight size={18} />
+            </a>
         </section>
     );
 }

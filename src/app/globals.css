@@ -583,6 +583,23 @@ html {
   line-height: 1.6;
   margin: 0 0 16px;
 }
+.all-projects-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+  color: var(--text);
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: color 0.25s var(--ease-fluid), gap 0.25s var(--ease-fluid);
+}
+.all-projects-link:hover {
+  gap: 15px;
+  color: var(--accent);
+}
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -603,6 +620,53 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1040px;
+}
+.contact-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 24px 0 72px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(58px, 10vw, 126px);
+  font-weight: 700;
+  line-height: 0.84;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+.contact-title span {
+  color: var(--text);
+}
+.contact-title strong {
+  color: var(--accent);
+  font-weight: inherit;
+}
+.contact-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  width: 100%;
+  padding-top: 38px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+.contact-mail-block,
+.contact-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-socials {
+  align-items: flex-start;
+  justify-self: end;
+  min-width: min(100%, 280px);
+}
+.contact-label {
+  color: var(--text-dim);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .contact-sub {
   color: var(--text-dim);
@@ -613,7 +677,7 @@ html {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 0;
 }
 .mail-link,
 .profile-link {
@@ -624,7 +688,10 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 16px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.1;
 }
 .mail-link strong {
   color: var(--accent);
@@ -687,6 +754,47 @@ html {
   text-transform: none;
   letter-spacing: 0;
 }
+.projects-page-header {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 140px 24px 0;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 72px;
+  color: var(--text-dim);
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.back-link:hover {
+  color: var(--accent);
+}
+.projects-page-title {
+  margin: 22px 0 18px;
+  color: var(--text);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.86;
+}
+.projects-page-title span {
+  color: var(--accent);
+}
+.projects-page-intro {
+  max-width: 420px;
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.projects-page-list {
+  padding-top: 84px;
+}
 
 @media (max-width: 640px) {
   .about-stack-layout {
@@ -708,6 +816,30 @@ html {
     flex-direction: column;
     gap: 8px;
     margin-top: 64px;
+  }
+  .contact-title {
+    width: 100%;
+    margin-bottom: 52px;
+    font-size: clamp(50px, 15vw, 76px);
+  }
+  .contact-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .contact-socials {
+    justify-self: start;
+  }
+  .mail-link {
+    font-size: 18px;
+  }
+  .projects-page-header {
+    padding: 112px 18px 0;
+  }
+  .back-link {
+    margin-bottom: 56px;
+  }
+  .projects-page-list {
+    padding-top: 64px;
   }
 }
 
