@@ -10,8 +10,10 @@ export default function Home() {
     <main className="site">
       <Nav />
       <Hero />
-      <About />
-      <TechStack />
+      <div className="about-stack-layout">
+        <About />
+        <TechStack />
+      </div>
       <Projects />
       <Contact />
     </main>

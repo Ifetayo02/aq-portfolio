@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import GithubIcon from "@/components/icons/GithubIcon";
 import { PROJECTS, Project } from "@/lib/content";
 
@@ -13,6 +13,10 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{
+                y: -6,
+                transition: { type: "spring", stiffness: 260, damping: 18 },
+            }}
         >
             <div className={`mockup mockup-${project.accent}`}>
                 <div className="mockup-bar">
@@ -58,8 +62,13 @@ export default function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <p className="section-eyebrow">Selected work</p>
-                <h2 className="section-title">Things I&apos;ve built</h2>
+                <p className="section-eyebrow">SELECTED WORKS</p>
+                <div className="projects-title-wrap">
+                    <span className="projects-title-back" aria-hidden="true">PROJECTS</span>
+                    <h2 className="section-title projects-title">
+                        <span>SELECTED</span> <strong>WORKS</strong>
+                    </h2>
+                </div>
             </motion.div>
             <div className="project-grid">
                 {PROJECTS.map((p, i) => (
