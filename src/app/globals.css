@@ -79,6 +79,12 @@ html {
   position: relative;
   overflow-x: hidden;
   background: var(--bg);
+  animation: page-enter 0.8s var(--ease-fluid) both;
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .site::before,
@@ -276,6 +282,9 @@ html {
       border-radius: 10px;
       font: inherit;
     }
+    .theme-toggle-mobile:hover {
+      transform: none;
+    }
 }
 
 /* ---------- Hero ---------- */
@@ -301,14 +310,13 @@ html {
   font-family: var(--font-display), sans-serif;
   font-weight: 600;
   text-transform: none;
-  font-size: clamp(42px, 11vw, 116px);
+  font-size: clamp(36px, 11vw, 116px);
   line-height: 0.98;
   letter-spacing: -0.02em;
   margin: 0;
   color: var(--text);
   max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  white-space: nowrap;
 }
 .hero-dot {
   color: var(--accent);
@@ -320,6 +328,12 @@ html {
   background: var(--border);
   margin: 32px 0 28px;
   transform-origin: center;
+  animation: divider-pulse 4s 1.1s var(--ease-fluid) infinite;
+}
+
+@keyframes divider-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
 }
 
 .hero-role {
@@ -504,18 +518,38 @@ html {
   gap: 24px;
 }
 .project-card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  transition: border-color 0.3s var(--ease-fluid);
+  box-shadow: 0 10px 0 var(--surface-2);
+  transition: border-color 0.3s var(--ease-fluid), box-shadow 0.3s var(--ease-fluid), transform 0.3s var(--ease-fluid);
 }
 .project-card:hover {
   border-color: var(--accent);
-  box-shadow: 6px 6px 0 var(--accent-soft);
+  box-shadow: 7px 7px 0 var(--accent-soft);
 }
-.mockup {
+.project-image-placeholder {
+  position: relative;
   padding: 10px;
+  background: var(--surface-2);
+}
+.project-image-placeholder::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: 42px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--accent);
+  opacity: 0.35;
+  transform: rotate(45deg);
+  transition: transform 0.5s var(--ease-fluid), opacity 0.5s var(--ease-fluid);
+}
+.project-card:hover .project-image-placeholder::after {
+  opacity: 0.8;
+  transform: rotate(135deg) scale(1.12);
 }
 .mockup-bar {
   display: flex;
@@ -529,13 +563,26 @@ html {
   background: var(--border);
 }
 .mockup-body {
+  position: relative;
   height: 140px;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--surface-2);
+  background: var(--bg);
   border: 1px solid var(--border);
+  transition: background 0.3s var(--ease-fluid), border-color 0.3s var(--ease-fluid);
+}
+.placeholder-kicker {
+  position: absolute;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+.placeholder-kicker {
+  top: 16px;
+  left: 18px;
+  color: var(--text-dim);
 }
 .mockup-glyph {
   font-family: var(--font-display), sans-serif;
@@ -546,12 +593,26 @@ html {
 .mockup-strong .mockup-glyph {
   color: var(--accent);
 }
+.mockup-strong .mockup-body {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.mockup-strong .mockup-glyph {
+  color: var(--bg);
+}
+.mockup-strong .placeholder-kicker {
+  color: var(--bg);
+}
 .mockup-soft .mockup-glyph {
   color: var(--accent-soft);
+}
+.mockup-soft .mockup-body {
+  border-left: 6px solid var(--accent-soft);
 }
 
 .project-body {
   padding: 20px 22px 24px;
+  border-top: 1px solid var(--border);
 }
 .project-head {
   display: flex;
@@ -565,6 +626,24 @@ html {
   font-size: 19px;
   letter-spacing: -0.01em;
   margin: 0;
+}
+.project-title-line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+.project-number {
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.project-head h3 {
+  font-weight: 800;
+  text-transform: uppercase;
 }
 .project-links {
   display: flex;
@@ -811,6 +890,18 @@ html {
   .section {
     padding: 90px 18px 20px;
   }
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-card,
+  .project-title-line,
+  .mail-link {
+    min-width: 0;
+  }
+  .mail-link {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
   .footer-banner {
     align-items: flex-start;
     flex-direction: column;
@@ -845,10 +936,7 @@ html {
 
 /* ---------- About ---------- */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+  display: block;
 }
 .about-copy p {
   color: var(--text-dim);

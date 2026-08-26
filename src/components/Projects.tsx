@@ -18,11 +18,12 @@ export function ProjectCard({ project, i }: { project: Project; i: number }) {
                 transition: { type: "spring", stiffness: 260, damping: 18 },
             }}
         >
-            <div className={`mockup mockup-${project.accent}`}>
+            <div className={`project-image-placeholder mockup-${project.accent}`} aria-label={`${project.name} project image placeholder`}>
                 <div className="mockup-bar">
                     <span /> <span /> <span />
                 </div>
                 <div className="mockup-body">
+                    <span className="placeholder-kicker">PROJECT PREVIEW</span>
                     <span className="mockup-glyph">
                         {project.name.slice(0, 2).toUpperCase()}
                     </span>
@@ -30,7 +31,10 @@ export function ProjectCard({ project, i }: { project: Project; i: number }) {
             </div>
             <div className="project-body">
                 <div className="project-head">
-                    <h3>{project.name}</h3>
+                    <div className="project-title-line">
+                        <span className="project-number">0{i + 1}</span>
+                        <h3>{project.name.toUpperCase()}</h3>
+                    </div>
                     <div className="project-links">
                         <a href={project.live} aria-label={`${project.name} live link`}>
                             <ExternalLink size={16} />
