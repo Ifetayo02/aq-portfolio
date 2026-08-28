@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { CONTACT_EMAIL, NAME } from "@/lib/content";
+import { CONTACT_EMAIL, CV_PATH, NAME } from "@/lib/content";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -55,6 +55,9 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
+            <a href={CV_PATH} target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
           </div>
           <div className="nav-cta-group">
             <button
@@ -97,11 +100,20 @@ export default function Nav() {
               </a>
             ))}
             <a
+              href={CV_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+            >
+              Resume
+            </a>
+            <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="btn-cta btn-cta-mobile"
               onClick={() => setOpen(false)}
             >
               Let&apos;s Talk
+              
             </a>
             <button
               className="theme-toggle-text theme-toggle-mobile"
