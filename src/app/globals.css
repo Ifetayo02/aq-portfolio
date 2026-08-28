@@ -324,7 +324,7 @@ html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 124px 20px 72px;
+  padding: 124px 20px 60px;
   overflow: hidden;
   background: var(--bg);
 }
