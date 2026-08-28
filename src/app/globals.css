@@ -454,7 +454,7 @@ html {
   flex-direction: column;
   max-width: none;
   margin: 0;
-  padding: 112px 0 56px;
+  padding: 64px 0 40px;
 }
 .about-stack-layout > #stack .tile-grid {
   flex: 1;
