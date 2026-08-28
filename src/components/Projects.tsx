@@ -48,13 +48,12 @@ export function ProjectCard({ project, i }: { project: Project; i: number }) {
                 className={`project-image-frame mockup-${project.accent}`}
                 aria-label={`${project.name} project preview`}
             >
-                {project.image ? (
+                               {project.image ? (
                     <motion.div
                         className="project-image-mask"
                         initial={{ clipPath: "inset(0 0 100% 0)" }}
-                        whileInView={{ clipPath: "inset(0 0 0% 0)" }}
-                        viewport={{ once: true, margin: "-40px" }}
-                        transition={{ duration: 0.7, delay: i * 0.08 + 0.1, ease: [0.22, 1, 0.36, 1] }}
+                        animate={{ clipPath: "inset(0 0 0% 0)" }}
+                        transition={{ duration: 0.7, delay: i * 0.15 + 0.2, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <motion.div className="project-image-scale" style={{ x: imgX, y: imgY }}>
                             <Image
