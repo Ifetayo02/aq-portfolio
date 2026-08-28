@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, Menu, Moon, Sun, X } from "lucide-react";
-import { CV_PATH, NAME } from "@/lib/content";
+import { Menu, X } from "lucide-react";
+import { CONTACT_EMAIL, NAME } from "@/lib/content";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -14,12 +14,11 @@ const LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setDarkMode(savedTheme ? savedTheme === "dark" : prefersDark);
+    setDarkMode(savedTheme ? savedTheme === "dark" : true);
   }, []);
 
   useEffect(() => {
@@ -27,54 +26,60 @@ export default function Nav() {
     window.localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  const themeLabel = darkMode ? "Switch to light mode" : "Switch to dark mode";
+  const themeButtonLabel = darkMode ? "Light" : "Dark";
+  const themeAriaLabel = darkMode ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <div className="nav-bar">
-      <motion.a
-        href="#hero"
-        className="nav-logo"
-        initial={{ opacity: 0, x: -12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {NAME}
-      </motion.a>
+      <div className="nav-inner">
+        <motion.a
+          href="#hero"
+          className="nav-logo"
+          initial={{ opacity: 0, x: -12 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {NAME}
+        </motion.a>
 
-      {/* Desktop pill */}
-      <motion.nav
-        className="nav"
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="nav-links">
-          {LINKS.map((l, i) => (
-            <span key={l.href} className="nav-link-group">
-              {i > 0 && <span className="nav-divider" />}
-              <a href={l.href}>{l.label}</a>
-            </span>
-          ))}
-          <span className="nav-divider" />
-          <a href={CV_PATH} target="_blank" rel="noopener noreferrer">
-            <Eye size={14} className="nav-icon" /> Resume
-          </a>
-          <button className="theme-toggle" type="button" aria-label={themeLabel} onClick={() => setDarkMode((mode) => !mode)}>
-            {darkMode ? <Sun size={15} /> : <Moon size={15} />}
-          </button>
-        </div>
-      </motion.nav>
+        {/* Desktop bar */}
+        <motion.nav
+          className="nav"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="nav-links">
+            {LINKS.map((l) => (
+              <a key={l.href} href={l.href}>
+                {l.label}
+              </a>
+            ))}
+          </div>
+          <div className="nav-cta-group">
+            <button
+              className="theme-toggle-text"
+              type="button"
+              aria-label={themeAriaLabel}
+              onClick={() => setDarkMode((mode) => !mode)}
+            >
+              {themeButtonLabel}
+            </button>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="btn-cta">
+              Let&apos;s Talk
+            </a>
+          </div>
+        </motion.nav>
 
-      {/* Mobile toggle */}
-      <button
-        className="nav-toggle"
-        aria-label={open ? "Close menu" : "Open menu"}
-        onClick={() => setOpen((o) => !o)}
-      >
-        {open ? <X size={20} /> : <Menu size={20} />}
-      </button>
-
-      <div className="nav-spacer" />
+        {/* Mobile toggle */}
+        <button
+          className="nav-toggle"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
 
       {/* Mobile dropdown */}
       <AnimatePresence>
@@ -92,16 +97,18 @@ export default function Nav() {
               </a>
             ))}
             <a
-              href={CV_PATH}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="btn-cta btn-cta-mobile"
               onClick={() => setOpen(false)}
             >
-              <Eye size={14} className="nav-icon" /> Resume
+              Let&apos;s Talk
             </a>
-            <button className="theme-toggle theme-toggle-mobile" type="button" onClick={() => setDarkMode((mode) => !mode)}>
-              {darkMode ? <Sun size={15} /> : <Moon size={15} />}
-              {themeLabel}
+            <button
+              className="theme-toggle-text theme-toggle-mobile"
+              type="button"
+              onClick={() => setDarkMode((mode) => !mode)}
+            >
+              {themeAriaLabel}
             </button>
           </motion.div>
         )}

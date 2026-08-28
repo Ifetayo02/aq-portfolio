@@ -1,10 +1,10 @@
 export const NAME = "Abdulqoyum";
 
-export const HERO_ROLE = "Frontend developer";
+export const HERO_ROLE = "Web developer";
 export const HERO_TAGLINE = "Building digital experiences with clarity and intention";
 
 export const ROLE_LINES: string[] = [
-  "Frontend Developer",
+  "Web Developer",
   "React Interface Builder",
   "Next.js Developer",
   "Design-minded Engineer",
@@ -44,6 +44,17 @@ export interface Project {
   accent: ProjectAccent;
   live: string;
   code: string;
+  /**
+   * Path to the project screenshot, e.g. "/projects/taskflow.png".
+   * Drop the image file into /public/projects/ and reference it here.
+   * If omitted, the card falls back to the placeholder mockup.
+   */
+  image?: string;
+  /**
+   * Optional: a separate crop/orientation for small screens, e.g. "/projects/taskflow-mobile.png".
+   * Falls back to `image` if not provided.
+   */
+  imageMobile?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -52,33 +63,38 @@ export const PROJECTS: Project[] = [
     desc: "A Trello-style Kanban app with real-time collaboration, drag-and-drop boards, and role-based permissions.",
     tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
     accent: "strong",
-    live: "#",
-    code: "#",
+    live: "https://task-flow-omega-seven.vercel.app/",
+    code: "https://github.com/Ifetayo02/TaskFlow",
+    image: "/projects/Taskflow screenshot.png",
+    // imageMobile: "/projects/taskflow-mobile.png",
   },
   {
     name: "Planify",
     desc: "A full-stack task manager with Firebase authentication and a clean, fast task-tracking workflow.",
     tags: ["React", "Firebase", "Vite"],
     accent: "soft",
-    live: "#",
-    code: "#",
+    live: "https://planify-vert.vercel.app/",
+    code: "https://github.com/Ifetayo02/Planify",
+    image: "/projects/Planify screenshot.png",
   },
   {
     name: "OS Portfolio",
     desc: "A desktop-OS-themed web app with draggable windows, an admin CRUD panel, and a soft-delete recycle bin.",
     tags: ["Next.js", "Zustand", "Framer Motion"],
     accent: "strong",
-    live: "#",
-    code: "#",
+    live: "https://os-portfolio-seven-tau.vercel.app/",
+    code: "https://github.com/Ifetayo02/os-portfolio",
+    image: "/projects/OS Portfolio screenshot.png",
   },
-  {
-    name: "ShelfQuest",
-    desc: "A group-built book discovery app pulling live data from the Google Books API.",
-    tags: ["JavaScript", "Tailwind", "Google Books API"],
-    accent: "soft",
-    live: "#",
-    code: "#",
-  },
+{
+  name: "Sujood",
+  desc: "An Islamic utility web app for finding nearby mosques, tracking local prayer times, and discovering daily hadiths.",
+  tags: ["JavaScript", "Bootstrap 5", "Firebase", "AlAdhan API"],
+  accent: "soft", // Changed from "soft" to match the app's Emerald/Teal visual theme
+  live: "https://aq-sujood.vercel.app/",
+  code: "https://github.com/Ifetayo02/Sujood",
+  image: "/projects/Sujood screenshot.png",
+}
 ];
 
 export interface AboutHighlight {

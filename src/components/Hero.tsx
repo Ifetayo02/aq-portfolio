@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowDownRight, Eye } from "lucide-react";
 
 import { NAME, HERO_ROLE, HERO_TAGLINE, CV_PATH } from "@/lib/content";
+import MagneticButton from "@/components/MagneticButton";
 
 export default function Hero() {
     return (
         <section id="hero" className="hero">
-
 
             <motion.h1
                 className="hero-name"
@@ -51,24 +51,20 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.62 }}
             >
-                <motion.a
-                    href="#projects"
-                    className="btn btn-ghost"
-                    whileHover={{ y: -3, transition: { type: "spring", stiffness: 320, damping: 16 } }}
-                    whileTap={{ scale: 0.96 }}
-                >
-                    See my work <ArrowDownRight size={16} />
-                </motion.a>
-                <motion.a
+                <MagneticButton href="#projects" className="btn btn-ghost">
+                    See my work
+                    <span className="btn-arrow">
+                        <ArrowDownRight size={16} />
+                    </span>
+                </MagneticButton>
+                <MagneticButton
                     href={CV_PATH}
                     className="btn btn-primary"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -3, transition: { type: "spring", stiffness: 320, damping: 16 } }}
-                    whileTap={{ scale: 0.96 }}
                 >
                     <Eye size={16} /> View CV
-                </motion.a>
+                </MagneticButton>
             </motion.div>
         </section>
     );

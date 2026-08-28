@@ -29,7 +29,7 @@ export default function About() {
           ))}
           <div className="about-note">
             <span className="about-note-mark" aria-hidden="true" />
-            <span>Focused on React, Next.js, and better web experiences.</span>
+            <span>Turning ideas into fast, thoughtful interfaces that just work.</span>
           </div>
         </motion.div>
       </div>

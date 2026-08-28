@@ -15,7 +15,7 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="section-eyebrow">04 — CONTACT</p>
+        <p className="section-eyebrow">CONTACT</p>
         <h2 className="contact-title">
           <span>LET&apos;S BUILD</span>
           <strong>SOMETHING.</strong>
@@ -44,7 +44,7 @@ export default function Contact() {
       </div>
       <footer className="footer-banner">
         <strong>Abdulqoyum</strong>
-        <span>&copy; 2026 Abdulqoyum. All rights reserved.</span>
+        <span>&copy; 2026 Jamiu Abdulqoyum. All rights reserved.</span>
       </footer>
     </section>
   );

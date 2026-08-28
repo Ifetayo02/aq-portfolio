@@ -37,19 +37,16 @@ const TECH_ICONS = {
 
 function TechTile({ tech, i }: { tech: TechItem; i: number }) {
   const Icon = TECH_ICONS[tech.name as keyof typeof TECH_ICONS];
+  // Even tiles slide in from the left, odd tiles from the right.
+  const fromLeft = i % 2 === 0;
 
   return (
     <motion.div
       className="tile"
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: fromLeft ? -48 : 48 }}
+      whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{
-        y: -4,
-        scale: 1.04,
-        transition: { type: "spring", stiffness: 300, damping: 15 },
-      }}
+      transition={{ duration: 0.55, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
     >
       <Icon className="tile-icon" size={22} />
       <span className="tile-label">{tech.name}</span>
@@ -66,16 +63,12 @@ export default function TechStack() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-          <p className="section-eyebrow">STACK</p>
+        <p className="section-eyebrow">STACK</p>
       </motion.div>
 
-      <div className="tile-grid">
+      <div className="tile-grid" role="list" aria-label="Technologies I work with">
         {TECH.map((tech, i) => (
-          <TechTile
-            tech={tech}
-            i={i}
-            key={tech.name}
-          />
+          <TechTile tech={tech} i={i} key={tech.name} />
         ))}
       </div>
     </section>
