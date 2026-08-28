@@ -130,5 +130,5 @@ export const CONTACT_EMAIL = "abdulqoyumjamiu@gmail.com";
 export const AVATAR_PATH = "/avatar.jpg";
 export const AVATAR_HERO_PATH = "/avatar1.jpg";
 export const GITHUB_URL = "https://github.com/Ifetayo02";
-export const LINKEDIN_URL = "https://linkedin.com/in/abdulqoyumjamiu";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/abdulqoyum-jamiu-963484344?utm_source=share_via&utm_content=profile&utm_medium=member_android";
 export const CV_PATH = "https://docs.google.com/document/d/1IUlLCL7o0WxMFDlIakeEcvfeJUrPYAGLCUsI2lpE1xo/view";
