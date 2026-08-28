@@ -87,8 +87,8 @@ html {
 }
 
 @keyframes page-enter {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .site::before,
@@ -111,7 +111,6 @@ html {
   background: var(--line-soft);
 }
 
-/* ---------- Nav ---------- */
 /* ---------- Nav ---------- */
 .nav-bar {
   position: fixed;
@@ -658,8 +657,6 @@ html {
   font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.08em;
-}
-.placeholder-kicker {
   top: 16px;
   left: 18px;
   color: var(--text-dim);
@@ -670,9 +667,6 @@ html {
   font-size: 32px;
   letter-spacing: 0.02em;
 }
-.mockup-strong .mockup-glyph {
-  color: var(--accent);
-}
 .mockup-strong .mockup-body {
   background: var(--accent);
   border-color: var(--accent);
@@ -682,12 +676,6 @@ html {
 }
 .mockup-strong .placeholder-kicker {
   color: var(--bg);
-}
-.mockup-soft .mockup-glyph {
-  color: var(--accent-soft);
-}
-.mockup-soft .mockup-body {
-  border-left: 6px solid var(--accent-soft);
 }
 
 .project-body {
@@ -702,9 +690,10 @@ html {
 }
 .project-head h3 {
   font-family: var(--font-display), sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 19px;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
   margin: 0;
 }
 .project-title-line {
@@ -721,10 +710,7 @@ html {
   line-height: 1;
   letter-spacing: 0.02em;
 }
-.project-head h3 {
-  font-weight: 800;
-  text-transform: uppercase;
-}
+
 .project-links {
   display: flex;
   gap: 12px;
