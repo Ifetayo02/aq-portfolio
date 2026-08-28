@@ -324,7 +324,7 @@ html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 124px 20px 50px;
+  padding: 124px 20px 72px;
   overflow: hidden;
   background: var(--bg);
 }
@@ -652,6 +652,10 @@ html {
   border: 1px solid var(--border);
   transition: background 0.3s var(--ease-fluid), border-color 0.3s var(--ease-fluid);
 }
+  .hero {
+    min-height: auto;
+    padding: 110px 20px 48px;
+  }
 .placeholder-kicker {
   position: absolute;
   font-family: var(--font-mono), monospace;
