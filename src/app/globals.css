@@ -237,8 +237,13 @@ html {
   opacity: 0.8;
 }
 
-.nav-toggle {
+.nav-mobile-controls {
   display: none;
+  align-items: center;
+  gap: 10px;
+}
+.nav-toggle {
+  display: flex;
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text);
@@ -272,7 +277,7 @@ html {
   .nav-cta-group {
     display: none;
   }
-  .nav-toggle {
+  .nav-mobile-controls {
     display: flex;
   }
   .nav-mobile-menu {
@@ -317,11 +322,6 @@ html {
     text-transform: uppercase;
     padding: 10px 18px;
     white-space: nowrap;
-  }
-  .theme-toggle-mobile {
-    width: 100%;
-    margin-top: 4px;
-    padding: 10px 12px;
   }
 }
 /* ---------- Hero ---------- */

@@ -28,6 +28,7 @@ export default function Nav() {
 
   const themeButtonLabel = darkMode ? "Light" : "Dark";
   const themeAriaLabel = darkMode ? "Switch to light mode" : "Switch to dark mode";
+  const toggleTheme = () => setDarkMode((mode) => !mode);
 
   return (
     <div className="nav-bar">
@@ -64,7 +65,7 @@ export default function Nav() {
               className="theme-toggle-text"
               type="button"
               aria-label={themeAriaLabel}
-              onClick={() => setDarkMode((mode) => !mode)}
+              onClick={toggleTheme}
             >
               {themeButtonLabel}
             </button>
@@ -74,17 +75,27 @@ export default function Nav() {
           </div>
         </motion.nav>
 
-        {/* Mobile toggle */}
-        <button
-          className="nav-toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Mobile-only controls: theme toggle stays on the bar, doesn't collapse */}
+        <div className="nav-mobile-controls">
+          <button
+            className="theme-toggle-text"
+            type="button"
+            aria-label={themeAriaLabel}
+            onClick={toggleTheme}
+          >
+            {themeButtonLabel}
+          </button>
+          <button
+            className="nav-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown — links + CV + CTA only, theme toggle lives on the bar above */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -99,7 +110,7 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
-            <a
+            
               href={CV_PATH}
               target="_blank"
               rel="noopener noreferrer"
@@ -107,21 +118,13 @@ export default function Nav() {
             >
               Resume
             </a>
-            <a
+            
               href={`mailto:${CONTACT_EMAIL}`}
               className="btn-cta btn-cta-mobile"
               onClick={() => setOpen(false)}
             >
               Let&apos;s Talk
-              
             </a>
-            <button
-              className="theme-toggle-text theme-toggle-mobile"
-              type="button"
-              onClick={() => setDarkMode((mode) => !mode)}
-            >
-              {themeAriaLabel}
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
