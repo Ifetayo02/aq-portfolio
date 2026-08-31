@@ -110,7 +110,7 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
-            
+            <a
               href={CV_PATH}
               target="_blank"
               rel="noopener noreferrer"
@@ -118,7 +118,7 @@ export default function Nav() {
             >
               Resume
             </a>
-            
+            <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="btn-cta btn-cta-mobile"
               onClick={() => setOpen(false)}
